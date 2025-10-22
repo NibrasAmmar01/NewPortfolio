@@ -6,10 +6,8 @@ export const StarBackground = () => {
   const [isDark, setIsDark] = useState(true);
 
   useEffect(() => {
-    // Initialize theme state
     setIsDark(document.documentElement.classList.contains("dark"));
 
-    // Watch for theme changes dynamically
     const observer = new MutationObserver(() => {
       setIsDark(document.documentElement.classList.contains("dark"));
     });
@@ -28,8 +26,7 @@ export const StarBackground = () => {
   }, []);
 
   const generateStars = () => {
-    const numberOfStars = Math.floor((window.innerWidth * window.innerHeight) / (isDark ? 10000 : 15000)); // slightly fewer on light
-
+    const numberOfStars = Math.floor((window.innerWidth * window.innerHeight) / 10000);
     const newStars = [];
     for (let i = 0; i < numberOfStars; i++) {
       newStars.push({
@@ -41,25 +38,22 @@ export const StarBackground = () => {
         animationDuration: Math.random() * 4 + 1,
       });
     }
-
     setStars(newStars);
   };
 
   const generateMeteors = () => {
     const numberOfMeteors = 4;
     const newMeteors = [];
-
     for (let i = 0; i < numberOfMeteors; i++) {
       newMeteors.push({
         id: i,
         size: Math.random() * 2 + 1,
         x: Math.random() * 100,
         y: Math.random() * 20,
-        delay: Math.random() * 15,
+        delay: Math.random() * 5, // staggered start
         animationDuration: Math.random() * 3 + 3,
       });
     }
-
     setMeteors(newMeteors);
   };
 
@@ -76,11 +70,10 @@ export const StarBackground = () => {
             top: star.y + "%",
             opacity: star.opacity,
             animationDuration: star.animationDuration + "s",
-            backgroundColor: isDark ? "white" : "#FFD700", // goldish on light
+            backgroundColor: isDark ? "white" : "#FFD700",
             boxShadow: isDark
               ? "0 0 2px rgba(255,255,255,0.8)"
               : "0 0 3px rgba(255,215,0,0.8)",
-            borderRadius: "50%",
           }}
         />
       ))}
@@ -100,7 +93,8 @@ export const StarBackground = () => {
             boxShadow: isDark
               ? "0 0 4px rgba(255,255,255,0.8)"
               : "0 0 6px rgba(255,165,0,0.7)",
-            borderRadius: "999px",
+            transform: "rotate(215deg)", // correct initial diagonal orientation
+            transformOrigin: "top left", // ensures rotation matches path
           }}
         />
       ))}
