@@ -1,10 +1,9 @@
 import { Linkedin, Mail, MapPin, Phone, Send } from "lucide-react";
 import { cn } from "../lib/utils";
-import { useState } from "react";
+//import { useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
 
 export const ContactSection = () => {
-  const [formStatus, setFormStatus] = useState(""); // Success/Error message
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = e.target;
@@ -20,18 +19,21 @@ export const ContactSection = () => {
       });
 
       if (response.ok) {
-        setFormStatus("Message sent successfully!");
+        toast.success("Message sent successfully!");
         form.reset();
       } else {
-        setFormStatus("Failed to send message. Please try again.");
+        toast.error("Failed to send message. Please try again.");
       }
     } catch (error) {
-      setFormStatus("An error occurred. Please try again.");
+      toast.error("An error occurred. Please try again.");
     }
   };
 
   return (
     <section id="contact" className="py-24 px-4 relative bg-secondary/30">
+      {/* Toaster container */}
+      <Toaster position="top-right" reverseOrder={false} />
+
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
           Get In <span className="text-primary">Touch</span>
@@ -153,15 +155,9 @@ export const ContactSection = () => {
                 />
               </div>
 
-              {formStatus && (
-                <p className="text-sm text-center text-primary">{formStatus}</p>
-              )}
-
               <button
                 type="submit"
-                className={cn(
-                  "cosmic-button w-full flex items-center justify-center gap-2"
-                )}
+                className={cn("cosmic-button w-full flex items-center justify-center gap-2")}
               >
                 Send Message <Send size={16} />
               </button>
