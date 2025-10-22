@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import { cn } from "../lib/utils"
 import { Menu, X } from "lucide-react";
+//import { href } from "react-router-dom";
 const navItems = [
     {name: "Home", href: "#hero"},
     {name: "About", href: "#about"},
     {name: "Skills", href: "#skills"},
+    {name: "Experience", href: "#experience"},
     {name: "Projects", href: "#projects"},
     {name: "Contact", href: "#contact"},
 ]
