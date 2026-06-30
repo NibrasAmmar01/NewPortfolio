@@ -10,7 +10,7 @@ export const HeroSection = () => {
         <div className="space-y-6">
           <div className="flex justify-center opacity-0 animate-fade-in">
             <img
-              src="/public/Professional.png"
+              src="/Professional.png"
               alt="Nebras Ammar"
               className="h-28 w-28 md:h-32 md:w-32 rounded-full object-cover border-4 border-primary/30 shadow-lg"
             />
