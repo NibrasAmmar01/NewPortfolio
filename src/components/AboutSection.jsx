@@ -134,33 +134,7 @@ export const AboutSection = () => {
               </div>
             </div>
 
-            {/* Social links */}
-            <div className="flex gap-4 pt-2 text-sm">
-              <a
-                href="https://github.com/NibrasAmmar01"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                GitHub
-              </a>
-              <a
-                href="https://nebrasammar.netlify.app/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                Portfolio
-              </a>
-              <a
-                href="https://www.linkedin.com/in/nebras-ammar-193036260/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-primary transition-colors"
-              >
-                LinkedIn
-              </a>
-            </div>
+            
           </div>
 
           {/* Right Side - Cards */}

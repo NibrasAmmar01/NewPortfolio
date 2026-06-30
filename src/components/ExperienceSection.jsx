@@ -5,7 +5,7 @@ export const ExperienceSection = () => {
     {
     title:
       "Backend Development of a Production Hospitality Microservice",
-    role: "Part-time Backend Software Engineer – Auvelisse",
+    role: "Backend Software Engineer – Auvelisse",
     company: "Remote",
     period: "March 2026 – Present",
     description:
