@@ -130,57 +130,67 @@ export const ProjectsSection = () => {
           full-stack development, cloud infrastructure, and AI-driven solutions.
         </p>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, key) => (
-            <div
-              key={key}
-              className="group bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 card-hover"
-            >
-              <div className="relative h-48 overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8">
+          {projects.map((project, key) => {
+            const isLastRow = key >= 9;
 
-                {/* GitHub / Project Link */}
-                <a
-                  href={project.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="absolute top-3 right-3 bg-black/70 hover:bg-primary/80 p-2 rounded-full transition-all duration-300"
-                  title="View Project"
-                >
-                  <Github className="h-4 w-4 text-white" />
-                </a>
-              </div>
+            return (
+              <div
+                key={project.id}
+                className={`group bg-card rounded-lg overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 card-hover ${
+                  isLastRow
+                    ? key === 9
+                      ? "lg:col-start-2 lg:col-span-2"
+                      : "lg:col-start-4 lg:col-span-2"
+                    : "lg:col-span-2"
+                }`}
+              >
+                <div className="relative h-48 overflow-hidden">
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  />
 
-              <div className="p-6">
-                <h3 className="text-xl font-semibold mb-1">
-                  {project.title}
-                </h3>
+                  <a
+                    href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="absolute top-3 right-3 bg-black/70 hover:bg-primary/80 p-2 rounded-full transition-all duration-300"
+                    title="View Project"
+                  >
+                    <Github className="h-4 w-4 text-white" />
+                  </a>
+                </div>
 
-                <p className="text-muted-foreground text-sm mb-4">
-                  {project.description}
-                </p>
+                <div className="p-6">
+                  <h3 className="text-xl font-semibold mb-1">
+                    {project.title}
+                  </h3>
 
-                <div className="flex flex-wrap gap-2 mb-2">
-                  {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-medium rounded-full
-                      bg-gradient-to-r from-primary/10 via-secondary/20 to-primary/10
-                      text-primary border border-primary/20
-                      shadow-sm hover:shadow-md hover:from-primary/20 hover:to-secondary/30
-                      transition-all duration-300"
-                    >
-                      {tag}
-                    </span>
-                  ))}
+                  <p className="text-muted-foreground text-sm mb-4">
+                    {project.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 mb-2">
+                    {project.tags.map((tag, index) => (
+                      <span
+                        key={index}
+                        className="px-3 py-1 text-xs font-medium rounded-full
+                        bg-gradient-to-r from-primary/10 via-secondary/20 to-primary/10
+                        text-primary border border-primary/20
+                        shadow-sm hover:shadow-md
+                        hover:from-primary/20 hover:to-secondary/30
+                        transition-all duration-300"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
         <div className="text-center mt-12">
