@@ -42,6 +42,15 @@ const projects = [
   },
   {
     id: 4,
+    title: "Medical Q&A AI Assistant",
+    description:
+      "Fine-tuned the Llama-3 8B model to create a medical question-answering assistant using domain-specific datasets and modern LLM fine-tuning techniques.",
+    image: "/projects/RagSystem.png",
+    tags: ["Python", "LLM", "Llama-3", "Fine-Tuning"],
+    github: "https://github.com/NibrasAmmar01/Finetuning_LLM",
+  },
+  {
+    id: 5,
     title: "Kafka Messaging App",
     description:
       "Developed a real-time messaging application with Spring Boot, Kafka, and Vite for fast and scalable message delivery between users.",
@@ -50,19 +59,10 @@ const projects = [
     github: "https://github.com/NibrasAmmar01/Kafka-Messaging-App",
   },
   {
-    id: 5,
-    title: "Medical Q&A AI Assistant",
-    description:
-      "Fine-tuned the Llama-3 8B model to create a medical question-answering assistant using domain-specific data and modern LLM fine-tuning techniques.",
-    image: "/projects/RagSystem.png",
-    tags: ["Python", "LLM", "Llama-3", "Fine-Tuning"],
-    github: "https://github.com/NibrasAmmar01/Finetuning_LLM",
-  },
-  {
     id: 6,
     title: "Microservices with Dapr & Kubernetes",
     description:
-      "Built distributed microservices using TypeScript, Vue.js, and .NET, orchestrated with Kubernetes and Dapr for service-to-service communication.",
+      "Built distributed microservices with TypeScript, Vue.js, and .NET, orchestrated via Kubernetes with Dapr for inter-service communication.",
     image: "/projects/Deployments.jpg",
     tags: ["TypeScript", "Vue.js", ".NET", "Dapr", "Kubernetes"],
     github:
@@ -72,7 +72,7 @@ const projects = [
     id: 7,
     title: "Order Microservice",
     description:
-      "Implemented a Spring Boot microservice for order processing and management, communicating with other services through REST APIs and PostgreSQL.",
+      "Implemented a Spring Boot microservice for order processing and management, communicating with other services via REST APIs and secured with Docker containers.",
     image: "/projects/Order.jpg",
     tags: ["Spring Boot", "Java", "PostgreSQL", "Docker"],
     github:
@@ -82,7 +82,7 @@ const projects = [
     id: 8,
     title: "Facial Recognition System",
     description:
-      "Developed a real-time facial detection and recognition system combining deep learning with ESP32-CAM and embedded hardware.",
+      "Developed a facial detection and recognition system using deep learning models and ESP32-CAM for real-time recognition.",
     image: "/projects/FacialRecognition.png",
     tags: ["Python", "Deep Learning", "ESP32-CAM"],
     github:
@@ -90,12 +90,30 @@ const projects = [
   },
   {
     id: 9,
+    title: "Multi-Tier Security Infrastructure",
+    description:
+      "Designed and implemented a multi-layered security system on Microsoft Azure to protect application, data, and network layers.",
+    image: "/projects/azureArchitecture.jpg",
+    tags: ["Azure", "NGINX", "Firewall"],
+    github: "https://github.com/NibrasAmmar01/",
+  },
+  {
+    id: 10,
     title: "Project Management System",
     description:
-      "Created a web-based task management and team collaboration platform using Java EE, MySQL, and Bootstrap.",
+      "Created a web-based system for task management and team collaboration using Java EE and MySQL.",
     image: "/projects/JEE.jpg",
     tags: ["JEE", "MySQL", "Bootstrap"],
     github: "https://github.com/NibrasAmmar01/J2EE",
+  },
+  {
+    id: 11,
+    title: "Stock Trading Simulator",
+    description:
+      "Built a C++ simulator to allow users to test trading strategies with real-time market simulations.",
+    image: "/projects/stock.jpg",
+    tags: ["C++", "Simulation", "Finance"],
+    github: "https://github.com/achrefGT/TradingSimulator",
   },
 ];
 
@@ -125,6 +143,7 @@ export const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
 
+                {/* GitHub / Project Link */}
                 <a
                   href={project.github}
                   target="_blank"
@@ -149,9 +168,9 @@ export const ProjectsSection = () => {
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs font-medium rounded-full 
-                      bg-gradient-to-r from-primary/10 via-secondary/20 to-primary/10 
-                      text-primary border border-primary/20 
+                      className="px-3 py-1 text-xs font-medium rounded-full
+                      bg-gradient-to-r from-primary/10 via-secondary/20 to-primary/10
+                      text-primary border border-primary/20
                       shadow-sm hover:shadow-md hover:from-primary/20 hover:to-secondary/30
                       transition-all duration-300"
                     >
